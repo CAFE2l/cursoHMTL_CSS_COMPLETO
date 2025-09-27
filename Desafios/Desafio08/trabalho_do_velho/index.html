@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setor Administrativo - E-commerce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #89032F;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .main-dashboard {
+            background: white;
+            border: 2px solid #89032F;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(137, 3, 47, 0.1);
+        }
+
+        .dashboard-title {
+            color: #89032F;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #89032F;
+            padding-bottom: 0.5rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #89032F, #a50536);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(137, 3, 47, 0.3);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .quick-actions {
+            background: white;
+            border: 2px solid #89032F;
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #89032F;
+        }
+
+        .module-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(137, 3, 47, 0.15);
+            border-color: #89032F;
+        }
+
+        .module-title {
+            color: #89032F;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .module-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .action-btn {
+            background: #89032F;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-btn:hover {
+            background: #a50536;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(137, 3, 47, 0.3);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .status-active {
+            background-color: #28a745;
+        }
+
+        .status-pending {
+            background-color: #ffc107;
+        }
+
+        .status-alert {
+            background-color: #dc3545;
+        }
+
+        .section-title {
+            color: #89032F;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid #89032F;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-section {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-field {
+            margin-bottom: 1rem;
+        }
+
+        .form-field label {
+            display: block;
+            color: #89032F;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: #89032F;
+            box-shadow: 0 0 0 2px rgba(137, 3, 47, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🏪 Setor Administrativo - E-commerce</h1>
+    </header>
+
+    <div class="container">
+        <!-- Dashboard Principal -->
+        <div class="dashboard-grid">
+            <div class="main-dashboard">
+                <h2 class="dashboard-title">📊 Dashboard de E-commerce</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">R$ 24.580</div>
+                        <div class="metric-label">Faturamento Diário</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">R$ 156</div>
+                        <div class="metric-label">Ticket Médio</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">3.2%</div>
+                        <div class="metric-label">Taxa de Conversão</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">R$ 2.840</div>
+                        <div class="metric-label">Gastos Marketing</div>
+                    </div>
+                </div>
+                <div style="color: #666; font-size: 0.9rem;">
+                    <strong>Produtos Mais Vendidos:</strong> Smartphone XYZ (45 un.), Fone Bluetooth ABC (32 un.), Carregador Portátil (28 un.)
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3 class="dashboard-title">⚡ Ações Rápidas</h3>
+                <button class="action-btn">Novo Fornecedor</button>
+                <button class="action-btn">Lançamento Financeiro</button>
+                <button class="action-btn">Auditoria de Pedidos</button>
+                <button class="action-btn">Relatório Mensal</button>
+                
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="color: #89032F; margin-bottom: 1rem;">Status do Sistema</h4>
+                    <div style="margin-bottom: 0.5rem;">
+                        <span class="status-indicator status-active"></span>Vendas Online
+                    </div>
+                    <div style="margin-bottom: 0.5rem;">
+                        <span class="status-indicator status-pending"></span>Sync Estoque
+                    </div>
+                    <div style="margin-bottom: 0.5rem;">
+                        <span class="status-indicator status-active"></span>Pagamentos
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Módulos do Sistema -->
+        <h2 class="section-title">🔧 Módulos de Gestão</h2>
+        
+        <div class="modules-grid">
+            <!-- Fornecedores -->
+            <div class="module-card">
+                <h3 class="module-title">👥 Cadastro de Fornecedores</h3>
+                <p class="module-description">
+                    Gerencie todos os fornecedores com informações completas: dados de contato, produtos fornecidos, condições de pagamento e prazos de entrega.
+                </p>
+            </div>
+
+            <!-- Plano de Contas -->
+            <div class="module-card">
+                <h3 class="module-title">📋 Plano de Contas</h3>
+                <p class="module-description">
+                    Estruture o financeiro categorizando receitas e despesas. Configure códigos de conta e descrições para organizar as movimentações.
+                </p>
+            </div>
+
+            <!-- Lançamentos Financeiros -->
+            <div class="module-card">
+                <h3 class="module-title">💰 Lançamentos Financeiros</h3>
+                <p class="module-description">
+                    Registre despesas manuais como contas de luz, taxas bancárias e outros custos operacionais não automáticos.
+                </p>
+            </div>
+
+            <!-- Fluxo de Caixa -->
+            <div class="module-card">
+                <h3 class="module-title">📈 Fluxo de Caixa</h3>
+                <p class="module-description">
+                    Visualize projeções diárias, semanais e mensais do fluxo de caixa para melhor planejamento financeiro.
+                </p>
+            </div>
+
+            <!-- Análise de Metas -->
+            <div class="module-card">
+                <h3 class="module-title">🎯 Análise de Metas</h3>
+                <p class="module-description">
+                    Defina e acompanhe metas de faturamento, novos clientes e redução de custos com relatórios de progresso.
+                </p>
+            </div>
+
+            <!-- Calendário de Pagamentos -->
+            <div class="module-card">
+                <h3 class="module-title">📅 Calendário de Pagamentos</h3>
+                <p class="module-description">
+                    Controle pagamentos a fornecedores e recebimentos de marketplaces com sistema de alertas automáticos.
+                </p>
+            </div>
+
+            <!-- Auditoria de Pedidos -->
+            <div class="module-card">
+                <h3 class="module-title">🔍 Auditoria de Pedidos</h3>
+                <p class="module-description">
+                    Ferramenta para identificar e verificar inconsistências entre pedidos, pagamentos e movimentações de estoque.
+                </p>
+            </div>
+
+            <!-- Gestão de Impostos -->
+            <div class="module-card">
+                <h3 class="module-title">📊 Gestão de Impostos e Taxas</h3>
+                <p class="module-description">
+                    Apuração automática de impostos baseada nas vendas e custos, com relatórios detalhados para compliance fiscal.
+                </p>
+            </div>
+
+            <!-- Acessos e Permissões -->
+            <div class="module-card">
+                <h3 class="module-title">🔐 Gestão de Acessos</h3>
+                <p class="module-description">
+                    Configure permissões de acesso para cada funcionário, garantindo segurança da informação em diferentes áreas do sistema.
+                </p>
+            </div>
+        </div>
+
+        <!-- Exemplo de Formulário -->
+        <h2 class="section-title">📝 Exemplo: Cadastro de Fornecedor</h2>
+        
+        <div class="form-section">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                <div class="form-field">
+                    <label>Nome do Fornecedor</label>
+                    <input type="text" placeholder="Digite o nome da empresa">
+                </div>
+                <div class="form-field">
+                    <label>CNPJ</label>
+                    <input type="text" placeholder="00.000.000/0000-00">
+                </div>
+                <div class="form-field">
+                    <label>Telefone</label>
+                    <input type="text" placeholder="(11) 99999-9999">
+                </div>
+                <div class="form-field">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="contato@fornecedor.com">
+                </div>
+                <div class="form-field">
+                    <label>Condições de Pagamento</label>
+                    <select>
+                        <option>À vista</option>
+                        <option>30 dias</option>
+                        <option>45 dias</option>
+                        <option>60 dias</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label>Prazo de Entrega (dias)</label>
+                    <input type="number" placeholder="7">
+                </div>
+            </div>
+            <div class="form-field">
+                <label>Endereço Completo</label>
+                <textarea rows="3" placeholder="Digite o endereço completo"></textarea>
+            </div>
+            <button class="action-btn" style="width: auto; padding: 1rem 2rem;">Cadastrar Fornecedor</button>
+        </div>
+    </div>
+
+   
+</body>
+</html>
