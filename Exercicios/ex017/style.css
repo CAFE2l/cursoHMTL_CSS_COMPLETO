@@ -1,11 +1,13 @@
+  @charset "UTF-8";
+  
   body{
             background-color:lightsteelblue;        
             font-family: Arial, Helvetica, sans-serif;
             font-size: 20px;
         }
         h1{
-            color: mediumblue;
-            background-color: lightblue;
+            color: maroon;
+            background-color: darkgoldenrod;
         }
         h2{
             color: darkred;
