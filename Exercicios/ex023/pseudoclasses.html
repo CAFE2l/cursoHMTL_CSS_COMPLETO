@@ -5,11 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pseudo-Classes</title>
     <style>
+        div{
+            background-color: lightgrey;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+            padding: -20px;
+            display: inline-block;
+        }
 
-        
+        #d1{
+            background-color: rgb(0, 110, 255);
+        }
+
+        #d1:hover{
+            transform: scale(0.5);
+            transition: 1s;
+            background-color: aqua;
+        }
     </style>
 </head>
 <body>
-    
+    <div id="d1">01</div>
+    <div id="d2">02</div>
+    <div id="d3">03</div>
 </body>
 </html>
