@@ -1,3 +1,16 @@
+@font-face {
+  /* 1. Dê um nome para a sua fonte. Você vai usar este nome no resto do CSS. */
+  font-family: 'idroid'; 
+
+  /* 2. Indique o caminho para o arquivo da fonte. */
+  /* O '../' significa "voltar uma pasta". Necessário porque o CSS está dentro da pasta 'css'. */
+  src: url('./fontes/idroid.otf') format('otf');
+
+  /* 3. (Opcional, mas recomendado) Defina o peso e o estilo desta fonte específica */
+  font-weight: normal; /* ou 400 */
+  font-style: normal;
+}
+
 header{
     background-image: linear-gradient(rgb(99, 240, 99), rgb(6, 114, 6));
     text-align: center;
@@ -9,23 +22,31 @@ header{
 
 }
 
-header > a{
+h2{
+    color:rgb(81, 253, 81)
+}
+
+section > h1{
+    color: rgba(1, 206, 1, 0.774);
+}
+/* Estado normal do link */
+header > a {
     text-decoration: none;
     font-weight: bold;
     color: white;
     margin: 0 20px;
+    padding: 5px; /* Adicionado padding aqui */
+    border-radius: 5px; /* Adicionado border-radius aqui */
 
+    /* A transição fica aqui! */
+    transition: transform 0.4s, background-color 0.4s; /* Tempo mais rápido e suave */
 }
 
-
-header > a:hover{
+/* Efeito ao passar o mouse */
+header > a:hover {
     background-color: lightgreen;
-    border: 15px;
-    transform: scale(1.3);
-    transition: 1s;
-    font-size: 16px;
-    border-radius: 5px;
-    padding: 5px;
+    transform: scale(1.1); /* Um pouco menor para não ser tão exagerado */
+    /* Removemos as outras propriedades que já estão no seletor principal */
 }
 
 body{
@@ -39,3 +60,11 @@ main{
     padding: 20px;
 }
 
+
+footer{
+    color: white;
+    text-align: center;
+    background-color: green;
+    font-weight: bold;
+    padding: 0.1px;
+}
