@@ -1,0 +1,18 @@
+header{
+    background-color: black;
+    color: white;
+    
+}
+
+h1{
+    font-weight: bolder;
+}
+
+header > p{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main > p{
+    font-family: cursive;
+}
