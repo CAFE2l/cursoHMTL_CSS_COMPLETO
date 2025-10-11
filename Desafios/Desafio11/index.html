@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AstrounataESPACIAL</title>
-    <style></style>
+    <style>
+        body {
+            /* 1. Faz o body ocupar a tela inteira */
+            min-height: 100vh; 
+            margin: 0; /* Remove margens padrão */
+
+            /* 2. Aplica a imagem de fundo e a ajusta */
+            background-image: url("./img/espaco.jpg");
+            background-size: cover; /* Faz a imagem cobrir todo o espaço */
+            background-position: center; /* Centraliza a imagem de fundo */
+            background-repeat: no-repeat;
+
+            /* 3. Ativa o Flexbox para centralizar o conteúdo */
+            display: flex;
+            justify-content: center; /* Centraliza na horizontal */
+            align-items: center; /* Centraliza na vertical */
+        }
+
+        img {
+            /* 4. Ajusta o tamanho da imagem do astronauta */
+            /* Removemos o padding e margens desnecessários */
+            max-width: 90%; /* Usa porcentagem para ser responsivo */
+            height: auto; /* Mantém a proporção da imagem */
+        } 
+    </style>
 </head>
 <body>
-    
+    <img src="./img/astronauta.png" alt="">
 </body>
 </html>
