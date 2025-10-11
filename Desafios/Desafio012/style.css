@@ -1,18 +1,72 @@
-header{
+/* Removemos o estilo do body para deixar a página fluida */
+
+header {
     background-color: black;
     color: white;
-    
+    text-align: center;
+    padding: 50px 0; /* Aumenta o espaçamento vertical */
 }
 
-h1{
+header h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 5vw; /* Usa 'vw' para o título ser responsivo */
     font-weight: bolder;
 }
 
-header > p{
+header p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header a {
     text-decoration: none;
+    color: white;
     font-weight: bold;
 }
 
-main > p{
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo geral para todas as seções */
+section {
+    padding: 10vw 0 10vw 30px; /* Espaçamento interno responsivo */
     font-family: cursive;
+    font-size: 3.5vw; /* Tamanho da fonte responsivo */
+    line-height: 2em; /* CORREÇÃO: Aumenta a altura da linha para o texto respirar */
+}
+
+/* Estilo para as seções normais (fundo branco) */
+section.normal {
+    background-color: white;
+    color: black;
+}
+
+/* Estilo para as seções com imagem de fundo */
+section.imagem {
+    background-color: rgb(51, 51, 51); /* Cor de fundo caso a imagem não carregue */
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.473); /* Sombra interna para dar profundidade */
+    
+    /* O EFEITO PARALLAX MÁGICO ESTÁ AQUI */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-attachment: fixed; /* Deixa a imagem de fundo fixa */
+}
+
+/* Efeito no texto dentro das seções com imagem */
+section.imagem > p {
+    display: inline-block; /* Faz o fundo não ocupar a linha toda */
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto semitransparente */
+    text-shadow: 1px 1px 0px black; /* Sombra no texto para melhor leitura */
+}
+
+/* Definindo as imagens de fundo para cada seção */
+#img01 {
+    background-image: url('./imgs/background001.jpg');
+    background-position: right center;
+}
+
+#img02 {
+    background-image: url('./imgs/background002.jpg');
+    background-position: right center;
 }
