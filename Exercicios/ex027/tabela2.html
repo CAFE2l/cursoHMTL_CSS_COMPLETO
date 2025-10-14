@@ -1,71 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabelas</title>
-    <style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        table{
-            width: 500px;
-            border-collapse: collapse;
-        }
-        td, th{
-            border: 1px solid black;
-            padding: 10px;
-        }
-        thead{
-            background-color: gray;
-            color: white;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            max-width: 500px; /* Impede que a tabela fique muito larga em telas grandes */
+            border-collapse: collapse; /* Une as bordas das células */
+            margin: auto; /* Centraliza a tabela na página */
+        }
+
+        /* Estilo para células de cabeçalho e de dados */
+        td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        /* Classe para alinhar conteúdo numérico à direita */
+        .num {
+            text-align: right;
+        }
+
+        /* Cabeçalho da tabela */
+        thead {
+            background-color: rgb(68, 68, 68);
+            color: white;
+        }
+
+        /* Rodapé da tabela */
+        tfoot {
+            background-color: rgb(221, 221, 221);
+            font-weight: bold;
+        }
+
+
+        caption{
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        tbody tr:nth-child(2n){
+            background-color: lightgrey;
+        }
+    </style>
 </head>
 <body>
-    <h1>Uso de Tabelas Grandes</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Estado</th>
-                <th>População</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>Acre</td><td>918710</td></tr>
-            <tr><td>Alagoas</td><td>3351543</td></tr>
-            <tr><td>Amapá</td><td>894470</td></tr>
-            <tr><td>Amazonas</td><td>4154591</td></tr>
-            <tr><td>Bahia</td><td>14873064</td></tr>
-            <tr><td>Ceará</td><td>9278469</td></tr>
-            <tr><td>Distrito Federal</td><td>3094325</td></tr>
-            <tr><td>Espírito Santo</td><td>4182071</td></tr>
-            <tr><td>Goiás</td><td>7018354</td></tr>
-            <tr><td>Maranhão</td><td>7118200</td></tr>
-            <tr><td>Mato Grosso</td><td>3484466</td></tr>
-            <tr><td>Mato Grosso do Sul</td><td>2778986</td></tr>
-            <tr><td>Minas Gerais</td><td>21168791</td></tr>
-            <tr><td>Pará</td><td>8602865</td></tr>
-            <tr><td>Paraíba</td><td>4028127</td></tr>
-            <tr><td>Paraná</td><td>11516840</td></tr>
-            <tr><td>Pernambuco</td><td>9557071</td></tr>
-            <tr><td>Piauí</td><td>3281480</td></tr>
-            <tr><td>Rio de Janeiro</td><td>17364943</td></tr>
-            <tr><td>Rio Grande do Norte</td><td>3517675</td></tr>
-            <tr><td>Rio Grande do Sul</td><td>11422973</td></tr>
-            <tr><td>Rondônia</td><td>1827638</td></tr>
-            <tr><td>Roraima</td><td>631181</td></tr>
-            <tr><td>Santa Catarina</td><td>7252502</td></tr>
-            <tr><td>São Paulo</td><td>45919049</td></tr>
-            <tr><td>Sergipe</td><td>2327420</td></tr>
-            <tr><td>Tocantins</td><td>1590248</td></tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Total de Habitantes</th>
-                <td>211156052</td>
-            </tr>
-        </tfoot>
-    </table>
+    <h1>População das Unidades Federativas do Brasil</h1>
+
+    <table>
+        <caption>População das Unidades Federativas do Brasil em 2022</caption>
+        <thead>
+            <tr>
+                <th scope="col">Estado</th>
+                <th scope="col">População</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Acre</td>
+                <td class="num">918.710</td>
+            </tr>
+            <tr>
+                <td>Alagoas</td>
+                <td class="num">3.351.543</td>
+            </tr>
+            <tr><td>Amapá</td><td class="num">894.470</td></tr>
+            <tr><td>Amazonas</td><td class="num">4.154.591</td></tr>
+            <tr><td>Bahia</td><td class="num">14.873.064</td></tr>
+            <tr><td>Ceará</td><td class="num">9.278.469</td></tr>
+            <tr><td>Distrito Federal</td><td class="num">3.094.325</td></tr>
+            <tr><td>Espírito Santo</td><td class="num">4.182.071</td></tr>
+            <tr><td>Goiás</td><td class="num">7.018.354</td></tr>
+            <tr><td>Maranhão</td><td class="num">7.118.200</td></tr>
+            <tr><td>Mato Grosso</td><td class="num">3.484.466</td></tr>
+            <tr><td>Mato Grosso do Sul</td><td class="num">2.778.986</td></tr>
+            <tr><td>Minas Gerais</td><td class="num">21.168.791</td></tr>
+            <tr><td>Pará</td><td class="num">8.602.865</td></tr>
+            <tr><td>Paraíba</td><td class="num">4.028.127</td></tr>
+            <tr><td>Paraná</td><td class="num">11.516.840</td></tr>
+            <tr><td>Pernambuco</td><td class="num">9.557.071</td></tr>
+            <tr><td>Piauí</td><td class="num">3.281.480</td></tr>
+            <tr><td>Rio de Janeiro</td><td class="num">17.364.943</td></tr>
+            <tr><td>Rio Grande do Norte</td><td class="num">3.517.675</td></tr>
+            <tr><td>Rio Grande do Sul</td><td class="num">11.422.973</td></tr>
+            <tr><td>Rondônia</td><td class="num">1.827.638</td></tr>
+            <tr><td>Roraima</td><td class="num">631.181</td></tr>
+            <tr><td>Santa Catarina</td><td class="num">7.252.502</td></tr>
+            <tr><td>São Paulo</td><td class="num">45.919.049</td></tr>
+            <tr><td>Sergipe</td><td class="num">2.327.420</td></tr>
+            <tr><td>Tocantins</td><td class="num">1.590.248</td></tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">Total de Habitantes</th>
+                <td class="num">211.156.052</td>
+            </tr>
+        </tfoot>
+    </table>
 </body>
 </html>
