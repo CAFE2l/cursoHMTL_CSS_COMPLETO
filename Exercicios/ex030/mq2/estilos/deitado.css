@@ -3,5 +3,6 @@
 /* Aparelho deitado (landscape)*/
 
 body{
-    
+    background-image: url(../imgs/imagens/cev-landscape.jpg);
+    background-position: left bottom;
 }

@@ -3,5 +3,6 @@
 /* Aaparelho em pé (portrait)*/
 
 body{
-    background: url(../imgs/);
+    background-image: url(../imgs/imagens/cev-portrait.jpg);
+    background-position: center bottom;
 }
