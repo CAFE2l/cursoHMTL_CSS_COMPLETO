@@ -2,8 +2,12 @@
 
 /* Estilos para Tablet */
 @media screen and (min-width: 770px) and (max-width: 1000px){
+    body{
+        background-image: linear-gradient(to top, #49a09d, #5f2c82);
+    }
+
     section#login{
-        width: 90vw;
+        width: 80vw;
     }
 
     section#login > div#imagem{
@@ -17,5 +21,27 @@
         width: 70%;
        
     
+    }
+}
+
+
+
+@media screen and (min-width: 1000px){
+    body{
+        background-image: linear-gradient(to top, #49a09d, #5f2c82);
+    }
+    section#login{
+        width: 960px;
+    }
+
+    section#login > div#imagem{
+        float: left;
+        width: 100%;
+        height: 100%;
+    }
+
+    section#login > div#formulario{
+        float: right;
+        width: 50%;
     }
 }
