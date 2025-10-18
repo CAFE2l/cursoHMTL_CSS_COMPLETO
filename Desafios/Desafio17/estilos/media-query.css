@@ -1,38 +1,21 @@
 @charset "UTF-8";
 
 /* Estilos para Tablet */
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 770px) and (max-width: 1000px){
     section#login{
         width: 90vw;
-        height: 350px;
     }
 
-    section#login > div#imagem {
+    section#login > div#imagem{
         float: left;
         width: 30%;
         height: 100%;
     }
-    
+
     section#login > div#formulario{
         float: right;
         width: 70%;
-    }
-}
-/* Estilos para Telas Maiores (Desktop) */
-@media screen and (min-width: 992px){
-    section#login{
-        width: 950px;
-        height: 380px;
-    }
-
-    section#login > div#imagem {
-        float: right;
-        width: 50%;
-        height: 100%;
-    }
-
-    section#login > div#formulario{
-        float: left; /* Este já estava correto, mantendo para clareza */
-        width: 50%;
+       
+    
     }
 }
