@@ -42,7 +42,7 @@ section#login{
 }
 
 section#login > div#imagem{
-    background: #5f2c82 url(../img/back-pc.jpg) no-repeat;
+    background: #5f2c82 url(../img/back-tv.jpg) no-repeat;
     height: 200px;
     background-size: cover;
     background-position: left bottom;
@@ -57,4 +57,14 @@ section#login > div#formulario{
 section#login > div#formulario > p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9em;
+}
+
+
+div#formulario > h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+div#formulario > p{
+    font-size: 0.8em;
 }
